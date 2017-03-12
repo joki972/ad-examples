@@ -1,1 +1,1 @@
-# Examples for Algorithms and Data Structures
+# Examples of Algorithms and Data Structures
