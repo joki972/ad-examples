@@ -12,7 +12,7 @@ class Ackermann {
 	}
 
 	public static void main(String args[]) {
-		int x = 3, y = 3;
+		int x = 4, y = 4;
 		System.out.println("Starting ackermann(" + x + "," + y + ")");
 		System.out.println("ackermann(" + x + "," + y + ")=" + ackermann(x, y));
 	}

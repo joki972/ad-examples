@@ -27,7 +27,7 @@ public class MaxSubArray {
 		if (args.length == 0) {
 			System.out.println("Datei mit Daten angeben.");
 			System.out.println(" Verwende 1Kints.txt");
-			in = new In("data"+File.separator+"1Kints.txt");
+			in = new In("data"+File.separator+"8Kints.txt");
 			//System.exit(0);
 		} else {
 			in = new In(args[0]);
