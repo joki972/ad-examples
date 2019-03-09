@@ -5,6 +5,7 @@ import de.hsog.helper.StdOut;
 /**
  * @param args
  */
+
 /*************************************************************************
  * Compilation: javac Heap.java Execution: java Heap < input.txt Dependencies:
  * StdOut.java StdIn.java Data files:
@@ -37,7 +38,7 @@ public class HeapSort {
 			sink(pq, k, N);
 		
 		while (N > 1) {
-			exch(pq, 1, N--);
+			swap(pq, 1, N--);
 			sink(pq, 1, N);
 		}
 	}
@@ -49,11 +50,11 @@ public class HeapSort {
 	private static void sink(Comparable[] pq, int k, int N) {
 		while (2 * k <= N) {
 			int j = 2 * k;
-			if (j < N && less(pq, j, j + 1))
+			if (j < N && isLessThan(pq, j, j + 1))
 				j++;
-			if (!less(pq, k, j))
+			if (!isLessThan(pq, k, j))
 				break;
-			exch(pq, k, j);
+			swap(pq, k, j);
 			k = j;
 		}
 	}
@@ -62,18 +63,18 @@ public class HeapSort {
 	 * Helper functions for comparisons and swaps. Indices are "off-by-one" to
 	 * support 1-based indexing.
 	 **********************************************************************/
-	private static boolean less(Comparable[] pq, int i, int j) {
+	private static boolean isLessThan(Comparable[] pq, int i, int j) {
 		return pq[i-1].compareTo(pq[j-1]) < 0;
 	}
 
-	private static void exch(Object[] pq, int i, int j) {
+	private static void swap(Object[] pq, int i, int j) {
 		Object swap = pq[i-1];
 		pq[i-1] = pq[j-1];
 		pq[j-1] = swap;
 	}
 
 	// is v < w ?
-	private static boolean less(Comparable v, Comparable w) {
+	private static boolean isLessThan(Comparable v, Comparable w) {
 		return (v.compareTo(w) < 0);
 	}
 
@@ -82,7 +83,7 @@ public class HeapSort {
 	 ***********************************************************************/
 	private static boolean isSorted(Comparable[] a) {
 		for (int i = 1; i < a.length; i++)
-			if (less(a[i], a[i - 1]))
+			if (isLessThan(a[i], a[i - 1]))
 				return false;
 		return true;
 	}
